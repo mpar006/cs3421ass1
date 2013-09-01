@@ -1,5 +1,5 @@
 package ass1;
-
+//just a test lol
 import java.lang.Math;
 /**
  * A collection of useful math methods 
