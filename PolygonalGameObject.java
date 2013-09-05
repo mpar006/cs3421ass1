@@ -120,12 +120,26 @@ public class PolygonalGameObject extends GameObject {
     		gl.glColor4d(myFillColour[0], myFillColour[1], myFillColour[2], myFillColour[3]);
     	}
     	
+        gl.glMatrixMode(GL2.GL_MODELVIEW);
+        gl.glPushMatrix();
+        {
+        	gl.glBegin(GL2.GL_POLYGON);
+        	{
+        		for(int i = 0; i < myPoints.length; i = i+2) {
+        			gl.glVertex2d(myPoints[i], myPoints[i+1]);
+        		}
+        	}
+        	gl.glEnd();
+        }
+        gl.glPopMatrix();
+        
     	//set line color
     	if(myLineColour != null) {
-    		//gl.glColor4d(myFillColour[0], myFillColour[1], myFillColour[2], myFillColour[3]);
+    		gl.glColor4d(myLineColour[0], myLineColour[1], myLineColour[2], myLineColour[3]);
     	}
     	
-        gl.glMatrixMode(GL2.GL_MODELVIEW);
+    	//draw the outline
+    	gl.glPolygonMode(GL2.GL_FRONT_AND_BACK,GL2.GL_LINE);
         gl.glPushMatrix();
         {
         	gl.glBegin(GL2.GL_POLYGON);

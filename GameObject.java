@@ -274,7 +274,7 @@ public class GameObject {
         		gl.glScaled(this.getGlobalScale(), this.getGlobalScale(), 1);
         	}
         	gl.glPopMatrix();
-        	//somehow need to recursively call draw...
+        	//draw(gl);
         }
     
         // Call drawSelf() to draw the object itself
